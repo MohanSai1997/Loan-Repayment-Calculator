@@ -1,9 +1,10 @@
-html, body {
-width: 100%;
-height: 100%;
+html,
+body {
+    width: 100%;
+    height: 100%;
 }
 
-body{
+body {
     /* background-color: #659dbd  */
     /* background-color: #5cdb95 */
     /* background-color: #97caef */
@@ -13,98 +14,88 @@ body{
     background-color: white;
 }
 
-/* header */
-
-
-/* ////////////////////////////////////////////////Start footer//////////////////////////////////////////////// */
-
-
-
-/* ////////////////////////////////////////////////End footer//////////////////////////////////////////////// */
-
-/* ////////////////////////////////////////////////Start emi-calculator//////////////////////////////////////////////// */
-
-/* ////////////////////////////////////////////////End emi-calculator//////////////////////////////////////////////// */
-
-/* ////////////////////////////////////////////////End emi-dashboard//////////////////////////////////////////////// */
-
-/* ////////////////////////////////////////////////End emi-dashboard//////////////////////////////////////////////// */
-
-.vision_mission{
+.vision_mission {
     color: rgba(68, 68, 68, 0.897);
     font-family: Roboto, sans-serif;
 }
 
-.calculator{
-    padding-right:100px;
-}
-
-
-#calc-contain{
-        display: none;
-        width: 260px;
-        position: absolute;
-        border: 1px solid green;
-        border-radius: 8px;
-        margin: 0px 80%;
-        padding: 20px 10px;
-        background-color: #659dbd;
-        z-index: 10;
-}
-#agh{
+#agh {
     position: relative;
     float: right;
     margin-top: 15px;
 }
-#agh p{
+
+#agh p {
     font-size: 20px;
     font-weight: 900;
 }
-#btn{
-    background: lightGray;
+
+.calculator {
+    padding-right: 100px;
+}
+
+
+#calc-contain {
+    display: none;
+    width: 260px;
+    position: fixed;
+    border: 2px solid rgb(156, 156, 156);
+    border-radius: 12px;
+    margin-left: 78%;
+    margin-top: 3.5%;
+    padding: 20px 10px 20px 10px;
+    background-color: hsl(239, 100%, 89%);
+    z-index: 10;
+}
+
+#btn {
+    background: rgb(252, 252, 252);
     width: 15%;
+    border: none;
+    margin: 3px;
+    padding: 3px;
     font-size: 20px;
-    font-weight: 900;
     border-radius: 7px;
-    margin-left: 13px;
-    margin-top: 10px;
 }
-#btn:active{
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
+
+#btn:active {
+    background-color: #ffffff;
+    box-shadow: 1px 2px -3px rgb(184, 184, 184);
+    transform: translateY(2px);
 }
-#btn:hover{
-    background-color: #003300;
+
+#btn:hover {
+    background-color: #3e8ae2;
     color: white;
 }
 
-#ans{
+#ans {
     position: relative;
     display: block;
     width: 80%;
     margin: 5px auto;
     font-size: 20px;
     padding: 10px;
-   box-shadow: 4px 0px 12px black inset;
+    box-shadow: 1px 0px 6px rgb(126, 126, 126) inset;
 }
-.well{
+
+.well {
     border-block-end-style: double;
     border-radius: 0%;
 }
 
 
-.navbar{
+.navbar {
     width: 100%;
     border: 100px;
     background-color: white;
     background-clip: content-box;
     border-radius: 0%;
-    
+
     /* background-image: linear-gradient(#659dbd, #2f2fa2) */
 }
 
-.form_font{
+.form_font {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 2px;
 }
@@ -113,43 +104,45 @@ body{
     -webkit-appearance: none;
     width: 100%;
     height: 15px;
-    border-radius: 5px;   
+    border-radius: 5px;
     background: #d3d3d3;
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
-  }
-  
-  .slider::-webkit-slider-thumb {
+}
+
+.slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%; 
-    background: #4CAF50;
-    cursor: pointer;
-  }
-  
-  .slider::-moz-range-thumb {
     width: 25px;
     height: 25px;
     border-radius: 50%;
     background: #4CAF50;
     cursor: pointer;
-  }
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
 
 input[type=range] {
-    
+
     width: 100%;
 }
 
-.col-sm-4{
+.col-sm-4 {
     align-self: center
 }
-output{
+
+output {
     font-style: inherit;
 }
+
 /* .col-sm-5{
     padding: 15px;
 
@@ -158,11 +151,13 @@ output{
 
 /* .form-control{
     width: 300px;
-} */      /* setting form width to 100%. so I commented this */
-.bank_interest_details{
+} */
+/* setting form width to 100%. so I commented this */
+.bank_interest_details {
     margin-left: 35%;
 }
-.bank_intrest_info{
+
+.bank_intrest_info {
     padding: 20px;
 }
 
@@ -170,7 +165,7 @@ output{
 
 
 /* Bootstrap class */
-.well{
+.well {
     border-radius: 5px;
     margin-bottom: 22px;
 }
@@ -183,39 +178,46 @@ output{
     padding: 1%;
 }
 
-.td-interest-rate{
+.td-interest-rate {
     text-align: center;
 }
 
 @media screen and (max-width: 1025px) {
-    #calc-contain{
+    #calc-contain {
         position: relative;
         margin: 0px 50px;
         width: 100%;
-        
+
     }
-    body{
+
+    body {
         width: 100%;
         padding: 0%;
-        margin: 0%;;
+        margin: 0%;
+        ;
     }
-    .emi_sheet{
+
+    .emi_sheet {
         padding-left: 0px;
     }
-    .vision_mission{
+
+    .vision_mission {
         margin: 0%;
         padding: 0%;
         width: 100%;
 
     }
-    .container{
-        width:100%;
-        overflow-x:scroll !important;
+
+    .container {
+        width: 100%;
+        overflow-x: scroll !important;
     }
+
     /* .form-control{
         width: 200px;
         overflow-x:scroll !important;
-    } */ /* setting form width to 100%. so I commented this */
-    
-    
+    } */
+    /* setting form width to 100%. so I commented this */
+
+
 }

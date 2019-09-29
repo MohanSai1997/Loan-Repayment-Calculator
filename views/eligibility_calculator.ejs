@@ -52,29 +52,26 @@
                         color: white;
                         margin: auto;
                     }
-                @media screen and (max-width: 1150px) {
-                    /* .eligibility_calci{
-                        margin: 0%;
-                        width: 100%;
-                        padding: 10px 30px;                         
-                    } */
-                    /* .form-control{
-                        width: 200px;
-                    } */
-                    
+
+                form label {
+                    font-weight: 500;
+                }
+                @media screen and (max-width: 430px) {
+                   .row h3, h4 {
+                       padding: 12px;
+                   }            
                     
                 }
         </style>
     </head>
     <body style="font-family: Roboto, sans-serif">
         <%- include('partials/header') -%>
-        <br>
         <div class="container" style="width:100%; padding: 6%; margin: 0%">
             <div class="row well" style="padding: 4%">
                 <div class="col">
-                        <h3><b>Education Loan Eligibility : </b></h3>
+                        <h3 >Education Loan Eligibility</h3>
                         <p style="font-size:16px;text-indent: 50px;text-align: justify; padding: 12px" >Since these loans are offered to brilliant students who are unable to meet the expenses of their higher education, the basic education loan eligibility is the academic excellence and achievements of the students. In other words, the eligibility of the applicants are assessed on the basis of their academic performance as cited in the mark sheets of previous exams.</p>
-                        <h3><b>Eligibility criteria : </b></h3>
+                        <h4>Eligibility criteria </h4>
                         <p style="font-size:16px;text-indent: 50px;text-align: justify; padding: 12px" >The vital education loan eligibility criteria that the candidates need to fulfil to get approval for the loan are listed out here:
                             <ul style="font-size:16px;">
                                 <li>The candidate applying for the loan must be a resident of India.</li>
@@ -89,12 +86,12 @@
             </div>
             <div class="row well" style="padding: 4%">
                 <div class="col">
-                        <h3><b>Education Loan Documentation : </b></h3>
+                        <h3>Education Loan Documentation : </h3>
                         <p style="font-size:16px;text-indent: 50px;text-align: justify; padding: 12px;" >As told earlier, education loan documentation doesn’t involve any hard-core paperwork. 
                             The process is simple and can be conducted online without paying physical visits to the banks. 
                             However, the process might vary depending on the criteria set by various banks or lending organisations. 
                             Also, the banks being very strict in their terms, failure to submit the mandated documents will lead to rejection </p>
-                        <h4><b>Required Documents : </b></h4>
+                        <h4>Required Documents : </h4>
                         <div style="padding: 12px">
                             <p style="font-size: 16px">Here are the mandatory documents that a student need to provide to the banks while applying for a student loan</p>
                                 <ul style="font-size:16px;">
@@ -127,7 +124,7 @@
             </div>
             <div class="row well">
                 <div class="col">
-                    <h3 style="text-align: center"><b>Education Loan Eligibility Calculator</b></h3>
+                    <h3 style="text-align: center">Education Loan Eligibility Calculator</h3>
                     <div class="row">
                         <div class="col eligibility_calci">
                             <form class="form-group" action="/eligibility-calculator" method="POST">
@@ -177,14 +174,14 @@
             </div>
             <div class="row well">
                 <div class="col">
-                    <h3 style="text-align: center; padding-bottom: 16px"><b>Education Loan Eligibility Requirement Table</b></h3>
+                    <h3 style="text-align: center; padding-bottom: 16px">Education Loan Eligibility Requirement Table</h3>
                     <div class="col">
                         <table class="table">  
+                            <thead>
+                                <th>Particulars</th>
+                                <th>Eligibility</th>
+                            </thead>
                             <tbody>
-                                <tr>
-                                    <td><strong>Particulars</strong></td>
-                                    <td><strong>Eligibility</strong></td>
-                                </tr>
                                 <tr>
                                     <td>Nationality</td>
                                     <td>Indian</td>

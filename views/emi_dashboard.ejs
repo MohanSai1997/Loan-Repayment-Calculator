@@ -1,454 +1,490 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Loan Repayment Calculator
-        </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, , maximum-scale=1, user-scalable=no">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script> 
-        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-        <link rel="stylesheet", href="/static/style.css" type="text/css">
-        
-        <style>
+
+<head>
+    <title>
+        Loan Repayment Calculator
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, , maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" , href="/static/style.css" type="text/css">
+
+    <style>
+        .secound-row .frfc-ed {
+            margin: 3%;
+            width: 43%;
+            background-color: #D7E2FE;
+            border: 0px;
+            border-radius: 16px;
+        }
+
+        .secound-row .frsc-ed {
+            margin: 3%;
+            width: 43%;
+        }
+
+        .srfc-ed {
+            margin-top: 7.5%;
+        }
+
+        .form-group .form-control {
+            border: 2px solid #D6E2FF;
+        }
+
+        .form-group .form-control:focus {
+            border: 2px solid #5C8EFF;
+        }
+
+        .form-group .submit-button {
+            background-color: white;
+            color: rgba(0, 255, 25, 0.6);
+            ;
+            border: 2px solid rgba(0, 255, 25, 0.6);
+            ;
+            width: 100%;
+            text-align: center;
+        }
+
+        .form-group .submit-button:hover {
+            background-color: rgba(0, 255, 25, 0.6);
+            ;
+            color: white;
+            margin: auto;
+        }
+
+        .form-group .form_font {
+            font-family: "Roboto, sans-serif";
+            font-weight: 500;
+        }
+
+        .dropdown button {
+            width: 100%;
+            color: #5C8EFF;
+            border: 2px solid #5C8EFF;
+            background-color: #FFFFFF;
+        }
+
+        .dropdown button:hover {
+            color: #FFFFFF;
+            background-color: #5C8EFF;
+        }
+
+        .third-row h4 {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 16px;
+        }
+
+        .fouth-row h4 {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 16px;
+        }
+
+        .third-row,
+        .fouth-row tbody td {
+            font-weight: 400;
+            font-size: 16px;
+        }
+
+        .fouth-row thead th {
+            font-weight: 500;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .third-row thead th {
+            font-weight: 500;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .float-button {
+            z-index: 100;
+            top: 30%;
+            position: fixed;
+            right: -30px;
+            transform: rotate(270deg);
+        }
+
+        @media screen and (max-width: 768px) {
             .secound-row .frfc-ed {
-                    margin: 3%;
-                    width: 43%;
-                    background-color: #D7E2FE;
-                    border: 0px;
-                    border-radius: 16px;
-                }
+                margin: 3%;
+                width: 95%;
+            }
 
             .secound-row .frsc-ed {
-                    margin: 3%;
-                    width: 43%;
-                }
-
-            .srfc-ed {
-                    margin-top: 7.5%;
-                }
-
-            .form-group .form-control  {
-                    border: 2px solid #D6E2FF;
-                }
-
-            .form-group .form-control:focus  {
-                    border: 2px solid #5C8EFF;
-                }   
-
-            .form-group .submit-button {
-                    background-color: white; 
-                    color: rgba(0, 255, 25, 0.6); ; 
-                    border: 2px solid  rgba(0, 255, 25, 0.6);;
-                    width: 100%;
-                    text-align: center;
-                }
-
-            .form-group .submit-button:hover {
-                    background-color : rgba(0, 255, 25, 0.6);;
-                    color: white;
-                    margin: auto;
-                }
-                
-            .form-group .form_font {
-                font-family: "Roboto, sans-serif";
-                font-weight: 500;
+                margin: 3%;
+                width: 95%;
             }
+        }
+    </style>
 
-            .dropdown button {
-                    width:100%; 
-                    color: #5C8EFF;
-                    border: 2px solid #5C8EFF; 
-                    background-color: #FFFFFF;
-                }   
+</head>
 
-            .dropdown button:hover {
-                    color: #FFFFFF;
-                    background-color: #5C8EFF;
-                }
+<body style="font-family: Roboto,  sans-serif">
+    <%- include('partials/header') -%>
+    <div class=" calculator">
+        <button class="btn btn-success float-button" onclick="fun1()">
+            Calculator
+        </button>
+        <div id='calc-contain'>
+            <!-- start Calculator  -->
+            <form name="calculator" class="form-group">
+                <input type="text" id="ans" name="answer" />
+                <br>
 
-            .third-row h4 {
-                text-align: center; 
-                font-size: 22px;
-                margin-bottom: 16px;
-            }
-
-            .fouth-row h4 {
-                text-align: center; 
-                font-size: 22px;
-                margin-bottom: 16px;
-            }
-
-            .third-row, .fouth-row tbody td {
-                font-weight: 400; 
-                font-size: 16px;
-            }
-
-            .fouth-row thead th {
-                font-weight: 500;
-                font-size: 16px;
-                text-align: center;
-            }
-
-             .third-row thead th {
-                font-weight: 500;
-                font-size: 16px;
-                text-align: center;
-            }
-
-            @media screen and (max-width: 768px) {
-                .secound-row  .frfc-ed {
-                    margin: 3%;
-                    width: 95%;
-                }
-
-                .secound-row  .frsc-ed {
-                    margin: 3%;
-                    width: 95%;
-                }
-            }
-        </style>
-
-    </head>
-    <body style="font-family: Roboto,  sans-serif">
-        <%- include('partials/header') -%>
-        <div class=" calculator text-right" ><br>
-            <button class="btn btn-success" onclick="fun1()">Calculator</button><br><br>
-            <div id='calc-contain'>
-                <!-- start Calculator  -->
-                <form name="calculator" class="form-group">
-                
-                    <input type="text" id="ans" name="answer" />
-                    <br>
-                    
-                    <input type="button" id="btn" value=" 1 " onclick="calculator.answer.value += '1'" />
-                    <input type="button" id="btn" value=" 2 " onclick="calculator.answer.value += '2'" />
-                    <input type="button" id="btn" value=" 3 " onclick="calculator.answer.value += '3'" />
-                    <input type="button" id="btn" value=" + " onclick="calculator.answer.value += '+'" />
-                    <br/>
-                    
-                    <input type="button" id="btn" value=" 4 " onclick="calculator.answer.value += '4'" />
-                    <input type="button" id="btn" value=" 5 " onclick="calculator.answer.value += '5'" />
-                    <input type="button" id="btn" value=" 6 " onclick="calculator.answer.value += '6'" />
-                    <input type="button" id="btn" value=" - " onclick="calculator.answer.value += '-'" />
+                <div class="keyboards" style="width: 100%; margin-left: 26px">
+                    <div>
+                        <input type="button" id="btn" value=" 1 " onclick="calculator.answer.value += '1'" />
+                        <input type="button" id="btn" value=" 2 " onclick="calculator.answer.value += '2'" />
+                        <input type="button" id="btn" value=" 3 " onclick="calculator.answer.value += '3'" />
+                        <input type="button" id="btn" value=" + " onclick="calculator.answer.value += '+'" />
+                    </div>
+                    <br />
+                    <div>
+                        <input type="button" id="btn" value=" 4 " onclick="calculator.answer.value += '4'" />
+                        <input type="button" id="btn" value=" 5 " onclick="calculator.answer.value += '5'" />
+                        <input type="button" id="btn" value=" 6 " onclick="calculator.answer.value += '6'" />
+                        <input type="button" id="btn" value=" - " onclick="calculator.answer.value += '-'" />
+                    </div>
                     </br>
-                
-                    <input type="button" id="btn" value=" 7 " onclick="calculator.answer.value += '7'" />
-                    <input type="button" id="btn" value=" 8 " onclick="calculator.answer.value += '8'" />
-                    <input type="button" id="btn" value=" 9 " onclick="calculator.answer.value += '9'" />
-                    <input type="button" id="btn" value=" x " onclick="calculator.answer.value += '*'" />
+                    <div>
+                        <input type="button" id="btn" value=" 7 " onclick="calculator.answer.value += '7'" />
+                        <input type="button" id="btn" value=" 8 " onclick="calculator.answer.value += '8'" />
+                        <input type="button" id="btn" value=" 9 " onclick="calculator.answer.value += '9'" />
+                        <input type="button" id="btn" value=" x " onclick="calculator.answer.value += '*'" />
+                    </div>
                     </br>
-                
-                    <input type="button" id="btn" value=" c " onclick="calculator.answer.value = ''" />
-                    <input type="button" id="btn" value=" 0 " onclick="calculator.answer.value += '0'" />
-                    <input type="button" id="btn" value=" = " onclick="calculator.answer.value = eval(calculator.answer.value)" />
-                    <input type="button" id="btn" value=" / " onclick="calculator.answer.value += '/'" />
+                    <div>
+                        <input type="button" id="btn" value=" c " onclick="calculator.answer.value = ''" />
+                        <input type="button" id="btn" value=" 0 " onclick="calculator.answer.value += '0'" />
+                        <input type="button" id="btn" value=" = "
+                            onclick="calculator.answer.value = eval(calculator.answer.value)" />
+                        <input type="button" id="btn" value=" / " onclick="calculator.answer.value += '/'" />
+                    </div>
                     </br>
-      
-        
-                </form>
+                </div>
+            </form>
 
-              <!-- end calculator -->
-              
-            </div>
-            <script>
-                    function fun1(){
-                        var ele = document.getElementById("calc-contain").style.display;
-                        if(ele==="none")
-                        document.getElementById("calc-contain").style.display="block";
-                        else
-                        document.getElementById("calc-contain").style.display="none";
-                    }
-            </script>
-            
         </div>
-        <br>
-        <h3 class="text-center">Education Loan EMI Dashboard</h3>
+        <script>
+            function fun1() {
+                var ele = document.getElementById("calc-contain").style.display;
+                if (ele === "none")
+                    document.getElementById("calc-contain").style.display = "block";
+                else
+                    document.getElementById("calc-contain").style.display = "none";
+            }
+        </script>
+    </div>
+    <h3 class="text-center">Education Loan EMI Dashboard</h3>
 
-        <div class="container" style="padding: 5%">
-            <!-- start First first-row -->
-            <div class="row well first-row" style="background: #EBF1FF; border-width: 0px; border-radius: 16px;">
-                <div class="col">
-                    <h3 class="text-center">Principal Amount : <%= principle_amount %></h3>
-                </div>
+    <div class="container" style="padding: 3%">
+        <!-- start First first-row -->
+        <div class="row well first-row" style="background: #EBF1FF; border-width: 0px; border-radius: 16px;">
+            <div class="col">
+                <h3 class="text-center">Principal Amount : <%= principle_amount %></h3>
             </div>
-            <!-- end first row -->
-            
-            <!-- start second row -->
-            <div class="row well secound-row" style="background: #EBF1FF; border-width: 0px; border-radius: 16px;"> 
-                <!--start second row first column -->
-                <div class="col-sm  col-md-6 frfc-ed well" > <!-- frfc style is coming from style.css -->.
-                    <form method="POST" id="loan_form" action="/emi-calculator/emi-dashboard" class="form-group">
-                        <div class="form-group">
-                            <label class="form_font"> Principal Amount :</label>
-                            <input type="number" class="form-control" name="loan_amount" min="1"  required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form_font"> Time Period (in months) :</label>
-                            <input type="number" class="form-control" name="period" min="1" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form_font"> Interest Rate :</label>
-                            <input type="number" step="0.01" class="form-control" min="0" max="100" name="intrest_rate" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" class="btn form_font submit-button" name="get_emi" value="Generate EMI">
-                        </div>
-                    </form> 
-                </div>
-                <!-- End second row first column -->
+        </div>
+        <!-- end first row -->
 
-                <!-- start second row second column -->
-                <div class="col-sm  col-md-6 frsc-ed ">  
-                    <div class="row">
-                        <div class="col align-self-center well" style="margin-bottom: 10%; background-color: #D7E2FE; border: 0px; border-radius: 16px;">
-                            <div class="slidecontainer" >
-                                <b class="text" style="font-family: Roboto, sans-serif;font-weight: 500;">Interest Rate<br>
-                                <form class="ranging" >
+        <!-- start second row -->
+        <div class="row well secound-row" style="background: #EBF1FF; border-width: 0px; border-radius: 16px;">
+            <!--start second row first column -->
+            <div class="col-sm  col-md-6 frfc-ed well">
+                <!-- frfc style is coming from style.css -->.
+                <form method="POST" id="loan_form" action="/emi-calculator/emi-dashboard" class="form-group">
+                    <div class="form-group">
+                        <label class="form_font"> Principal Amount :</label>
+                        <input type="number" class="form-control" name="loan_amount" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form_font"> Time Period (in months) :</label>
+                        <input type="number" class="form-control" name="period" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form_font"> Interest Rate :</label>
+                        <input type="number" step="0.01" class="form-control" min="0" max="100" name="intrest_rate"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn form_font submit-button" name="get_emi" value="Generate EMI">
+                    </div>
+                </form>
+            </div>
+            <!-- End second row first column -->
+
+            <!-- start second row second column -->
+            <div class="col-sm  col-md-6 frsc-ed ">
+                <div class="row">
+                    <div class="col align-self-center well"
+                        style="margin-bottom: 10%; background-color: #D7E2FE; border: 0px; border-radius: 16px;">
+                        <div class="slidecontainer">
+                            <b class="text" style="font-family: Roboto, sans-serif;font-weight: 500;">Interest Rate<br>
+                                <form class="ranging">
                                     <div style="display: flex; flex-direction: row">
                                         <div style="width: 80%; padding-top: 22px">
-                                            <input type="range" min="<%= min %>" max="<%= max %>" step="0.1" name="range_slider" class="slider" style="background-color: #FFFFFF;"
-                                            id="range_weight" value="<%= intrest_rate%>" oninput="range_weight_disp.value = range_weight.value" onchange="fun()">&nbsp;&nbsp;&nbsp;
+                                            <input type="range" min="<%= min %>" max="<%= max %>" step="0.1"
+                                                name="range_slider" class="slider" style="background-color: #FFFFFF;"
+                                                id="range_weight" value="<%= intrest_rate%>"
+                                                oninput="range_weight_disp.value = range_weight.value"
+                                                onchange="fun()">&nbsp;&nbsp;&nbsp;
                                         </div>
                                         <div style="width: 20%; text-align: center ;padding-top: 12px">
-                                            <output  id="range_weight_disp"><%= intrest_rate%></output>
+                                            <output id="range_weight_disp"><%= intrest_rate%></output>
                                         </div>
                                     </div>
                                 </form>
-                                <script >
-                                    function fun(){
+                                <script>
+                                    function fun() {
                                         var r = document.getElementById("range_weight_disp").innerHTML;
-                                        var p = <%= principle_amount %>;
-                                        var t = <%= period %>;
-                                        var emi=0;
-                                        if(r>0)
-                                        emi = (p*(r/1200)*(1+(r/1200))**t)/(1-(1+(r/1200))**t);
-                                        
-                                        if(emi<0)
-                                        {
+                                        var p = <%= principle_amount %> ;
+                                        var t = <%= period %> ;
+                                        var emi = 0;
+                                        if (r > 0)
+                                            emi = (p * (r / 1200) * (1 + (r / 1200)) ** t) / (1 - (1 + (r / 1200)) **
+                                                t);
+
+                                        if (emi < 0) {
                                             emi = -emi;
                                         }
-                                        var total = emi*t;
-                                        document.getElementById('emi').innerHTML=Number(Math.round(emi+'e2')+'e-2') ;
-                                        if(emi === 0)
-                                        document.getElementById('t_intrest').innerHTML=0;
+                                        var total = emi * t;
+                                        document.getElementById('emi').innerHTML = Number(Math.round(emi + 'e2') +
+                                            'e-2');
+                                        if (emi === 0)
+                                            document.getElementById('t_intrest').innerHTML = 0;
                                         else
-                                        document.getElementById('t_intrest').innerHTML=Number(Math.round((total-p)+'e2')+'e-2');
-                                        document.getElementById('t_amount').innerHTML= Number(Math.round(total+'e2')+'e-2');
-                                        pie(Number(Math.round((total-p)+'e2')+'e-2'),<%= principle_amount %>)
+                                            document.getElementById('t_intrest').innerHTML = Number(Math.round((total -
+                                                p) + 'e2') + 'e-2');
+                                        document.getElementById('t_amount').innerHTML = Number(Math.round(total +
+                                            'e2') + 'e-2');
+                                        pie(Number(Math.round((total - p) + 'e2') + 'e-2'), <%= principle_amount %> )
                                     }
-                                    function pie(a,b){
-                                        if(window.bar!=undefined)
-                                            window.bar.destroy();
-                                        let myChart  = document.getElementById("myCanvas").getContext('2d');
-                                        window.bar = new Chart(myChart, {
-                                        type : 'pie',
-                                        data : {
-                                        labels:['Intrest', 'Priciple Amount'],
-                                        datasets:[{
-                                        data:[a,b],
-                                        backgroundColor :['red','green'],}]
-                                        },
-                                    })
-                                    }
-                                </script>                  
-                            </div>
-                            <div style="padding: 4%">
-                                <table style="width: 100%">
-                                    <tbody style="font-size: 16px">
-                                        <tr style="margin: 5px">
-                                            <td style="font-weight: 500">EMI (monthly)</td>
-                                            <td id="emi"><%= emi %></td>
-                                        </tr>
-                                        <tr style="margin: 5px">
-                                            <td style="font-weight: 500">Total Intrest</td>
-                                            <td id="t_intrest"><%= intrest %></td>
-                                        </tr>
-                                        <tr style="margin: 5px">
-                                            <td style="font-weight: 500">Total Amount</td>
-                                            <td id="t_amount"><%= total_amount %></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="col align-self-center">
-                            <h4> Get the Bank EMI and Intrest Details :</h4>
-                            <div class="dropdown">
-                                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" >
-                                    Select Bank                 
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown-header">List of Banks<span style="float: right;">Interest rates</span> </li>
-                                        <% for(i=0;i<data.length;i++) { %>
-                                            <% var a  = data[i].class+"_bank_name" %>
-                                            <% var b  = data[i].class+"_bank_irate" %>
-                                            <li><a data-toggle="modal" id="<%= data[i].class %>" data-target="#myModal" href="javascript:" onclick="return drop_down(this.id)"><span id="<%= a %>" ><%= data[i].bank_name %></span><span style="float: right;"><span id="<%= b %>"><%= data[i].bank_intrest_rate %></span>%</span> </a></li>
-                                        <% } %>
-                                        
-                                </ul>
 
-                                <!-- Start of Modal -->
-                                <div id="myModal" class="modal fade" role="dialog" style="border-radius: 16px;">
-                                    <div class="modal-dialog">
-                                        <!-- Modal content-->
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title" id = "modal_header" style="font-weight: bold"></h4>
-                                            </div>
-                                            <div class="modal-body" style="padding-right:2%; padding-left: 2%">
-                                                <div style="padding: 3%">
-                                                        <table style="width: 100%">
-                                                            <tbody style="font-size: 18px">
-                                                                <tr style="margin: 5px">
-                                                                        <td style="font-weight: 900">Principal Amount</td>
-                                                                        <td id="modal_p"></td>
-                                                                </tr>
-                                                                <tr style="margin: 5px">
-                                                                    <td style="font-weight: 900">EMI (monthly)</td>
-                                                                    <td id="modal_emi"></td>
-                                                                </tr>
-                                                                <tr style="margin: 5px">
-                                                                    <td style="font-weight: 900">Total Intrest</td>
-                                                                    <td id="modal_intrest"></td>
-                                                                </tr>
-                                                                <tr style="margin: 5px">
-                                                                    <td style="font-weight: 900">Total Amount</td>
-                                                                    <td id="modal_total"></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer form-group">
-                                                <a href="/apply-loan"><button type="button" class="btn form_font submit-button">Apply for Loan</button></a>
+                                    function pie(a, b) {
+                                        if (window.bar != undefined)
+                                            window.bar.destroy();
+                                        let myChart = document.getElementById("myCanvas").getContext('2d');
+                                        window.bar = new Chart(myChart, {
+                                            type: 'pie',
+                                            data: {
+                                                labels: ['Intrest', 'Priciple Amount'],
+                                                datasets: [{
+                                                    data: [a, b],
+                                                    backgroundColor: ['red', 'green'],
+                                                }]
+                                            },
+                                        })
+                                    }
+                                </script>
+                        </div>
+                        <div style="padding: 4%">
+                            <table style="width: 100%">
+                                <tbody style="font-size: 16px">
+                                    <tr style="margin: 5px">
+                                        <td style="font-weight: 500">EMI (monthly)</td>
+                                        <td id="emi"><%= emi %></td>
+                                    </tr>
+                                    <tr style="margin: 5px">
+                                        <td style="font-weight: 500">Total Intrest</td>
+                                        <td id="t_intrest"><%= intrest %></td>
+                                    </tr>
+                                    <tr style="margin: 5px">
+                                        <td style="font-weight: 500">Total Amount</td>
+                                        <td id="t_amount"><%= total_amount %></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col align-self-center">
+                        <h4> Get the Bank EMI and Intrest Details :</h4>
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                Select Bank
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-header">List of Banks<span style="float: right;">Interest
+                                        rates</span> </li>
+                                <% for(i=0;i<data.length;i++) { %>
+                                <% var a  = data[i].class+"_bank_name" %>
+                                <% var b  = data[i].class+"_bank_irate" %>
+                                <li><a data-toggle="modal" id="<%= data[i].class %>" data-target="#myModal"
+                                        href="javascript:" onclick="return drop_down(this.id)"><span
+                                            id="<%= a %>"><%= data[i].bank_name %></span><span
+                                            style="float: right;"><span
+                                                id="<%= b %>"><%= data[i].bank_intrest_rate %></span>%</span> </a></li>
+                                <% } %>
+
+                            </ul>
+
+                            <!-- Start of Modal -->
+                            <div id="myModal" class="modal fade" role="dialog" style="border-radius: 16px;">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title" id="modal_header" style="font-weight: bold"></h4>
+                                        </div>
+                                        <div class="modal-body" style="padding-right:2%; padding-left: 2%">
+                                            <div style="padding: 3%">
+                                                <table style="width: 100%">
+                                                    <tbody style="font-size: 18px">
+                                                        <tr style="margin: 5px">
+                                                            <td style="font-weight: 900">Principal Amount</td>
+                                                            <td id="modal_p"></td>
+                                                        </tr>
+                                                        <tr style="margin: 5px">
+                                                            <td style="font-weight: 900">EMI (monthly)</td>
+                                                            <td id="modal_emi"></td>
+                                                        </tr>
+                                                        <tr style="margin: 5px">
+                                                            <td style="font-weight: 900">Total Intrest</td>
+                                                            <td id="modal_intrest"></td>
+                                                        </tr>
+                                                        <tr style="margin: 5px">
+                                                            <td style="font-weight: 900">Total Amount</td>
+                                                            <td id="modal_total"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
-                                        <!-- end model content -->            
+                                        <div class="modal-footer form-group">
+                                            <a href="/apply-loan"><button type="button"
+                                                    class="btn form_font submit-button">Apply for Loan</button></a>
+                                        </div>
                                     </div>
+                                    <!-- end model content -->
                                 </div>
-                                <!-- End of Modal -->
-                                    
-                                <script type='text/javascript'>
-                                    function drop_down(id){
-                                        console.log(id)
-                                        var bn = id+"_bank_name";
-                                        var br = id+"_bank_irate";
-                                        var bankName = document.getElementById(bn).innerHTML;
-                                        console.log(bankName);
-                                        var r = document.getElementById(br).innerHTML;
-                                        var p = <%= principle_amount %>;
-                                        var t = <%= period %>;
-                                        var emi=0;
-                                        emi = (p*(r/1200)*(1+(r/1200))**t)/(1-(1+(r/1200))**t)
-                                        if(emi<0) {
-                                            emi = -emi
-                                        };
-                                        var total  = emi*t;
-                                        var i = total -p ;
-                                        document.getElementById("modal_header").innerHTML = bankName;
-                                        document.getElementById("modal_p").innerHTML = p;
-                                        document.getElementById("modal_intrest").innerHTML = Number(Math.round((i)+'e2')+'e-2');
-                                        document.getElementById("modal_emi").innerHTML = Number(Math.round((emi)+'e2')+'e-2');
-                                        document.getElementById("modal_total").innerHTML = Number(Math.round((total)+'e2')+'e-2');
-                                    }
-                                </script>   
                             </div>
+                            <!-- End of Modal -->
+
+                            <script type='text/javascript'>
+                                function drop_down(id) {
+                                    console.log(id)
+                                    var bn = id + "_bank_name";
+                                    var br = id + "_bank_irate";
+                                    var bankName = document.getElementById(bn).innerHTML;
+                                    console.log(bankName);
+                                    var r = document.getElementById(br).innerHTML;
+                                    var p = <%= principle_amount %> ;
+                                    var t = <%= period %> ;
+                                    var emi = 0;
+                                    emi = (p * (r / 1200) * (1 + (r / 1200)) ** t) / (1 - (1 + (r / 1200)) ** t)
+                                    if (emi < 0) {
+                                        emi = -emi
+                                    };
+                                    var total = emi * t;
+                                    var i = total - p;
+                                    document.getElementById("modal_header").innerHTML = bankName;
+                                    document.getElementById("modal_p").innerHTML = p;
+                                    document.getElementById("modal_intrest").innerHTML = Number(Math.round((i) + 'e2') +
+                                        'e-2');
+                                    document.getElementById("modal_emi").innerHTML = Number(Math.round((emi) + 'e2') +
+                                        'e-2');
+                                    document.getElementById("modal_total").innerHTML = Number(Math.round((total) +
+                                        'e2') + 'e-2');
+                                }
+                            </script>
                         </div>
                     </div>
                 </div>
-                <!-- end second row second column -->
             </div>
-            <!-- end first first-row -->
+            <!-- end second row second column -->
+        </div>
+        <!-- end first first-row -->
 
-            <!-- start third row -->
-            <div class="row well third-row " style="background: rgba(3, 78, 255, 0.08); border-width: 0px; border-radius: 16px;">
+        <!-- start third row -->
+        <div class="row well third-row "
+            style="background: rgba(3, 78, 255, 0.08); border-width: 0px; border-radius: 16px;">
 
-                    <div class="col-sm-4 srfc-ed well" style="background-color: #D7E2FE; border-radius: 16px">
-                            <canvas id="myCanvas" width="300" height="300"></canvas>
-                            <script>
-                                
-                                let myChart  = document.getElementById("myCanvas").getContext('2d');
-                                window.bar = new Chart(myChart, {
-                                    type : 'pie',
-                                    data : {
-                                        labels:['Interest', 'Principle Amount'],
-                                        datasets:[{
-                                            data:[<%= intrest %>,<%= principle_amount %>],
-                                            backgroundColor :['red','green']
-                                        }]
-                                    }
-                                })
-                                
-                                
-                            </script><br>
-                        <h5 style="text-align: center">Interest vs Principal Amount</h5>
-                    </div>
-                    
-                    <div class="col-sm-8 srsc-ed"  style="overflow-x: auto ">
-                        <h4 style="text-align: center;">EMI and Interest Based on Period</h4>
-                            <table class="table" style="overflow-x: auto ">
-                                <thead>
-                                <tr>
-                                    <th scope="col">S/No</th>
-                                    <th scope="col">Period(in months)</th>
-                                    <th scope="col">EMI</th>
-                                    <th scope="col">Total Amount</th>
-                                    <th scope="col">Interest Amount</th>
-                            </tr>
-                                </thead>
-                                <tbody>
-                                    <% var cnt=1 %>
-                                    <% var p = principle_amount %>
-                                    <% var r = intrest_rate %>
-                                    <% var t = period - 24 %>
-                                    <% if(t<=0) { %>
-                                    <% t=6 %>
-                                    <% }  %>
-                                    <% var emis = 0 %>
-                                    <% for(i=0;i<9;i++) { %>
-                                        <tr class="text-center">
-                                            <% if(r>0) %>
-                                            <% emis = (p*(r/1200)*(1+(r/1200))**t)/(1-(1+(r/1200))**t) %>
-                                            <% if(emis<0) %>
-                                            <% emis = -emis%>
-                                            <td><%= cnt %></td>
-                                            <td><%= t %></td>
-                                            <td><%= Number(Math.round((emis)+'e2')+'e-2') %></td>
-                                            <td><%=  Number(Math.round((emis*t)+'e2')+'e-2')%></td>
-                                            <td><%=  Number(Math.round(((emis*t)-p)+'e2')+'e-2')%></td>
-                                        </tr>
-                                        <% cnt = Number(cnt)+1%>
-                                        <% t=Number(t)+6%>
-                                    <% } %>
-                                </tbody>
-                            </table>
-                    </div> 
-    
+            <div class="col-sm-4 srfc-ed well" style="background-color: #D7E2FE; border-radius: 16px">
+                <canvas id="myCanvas" width="300" height="300"></canvas>
+                <script>
+                    let myChart = document.getElementById("myCanvas").getContext('2d');
+                    window.bar = new Chart(myChart, {
+                        type: 'pie',
+                        data: {
+                            labels: ['Interest', 'Principle Amount'],
+                            datasets: [{
+                                data: [ <%= intrest %> , <%= principle_amount %> ],
+                                backgroundColor: ['red', 'green']
+                            }]
+                        }
+                    })
+                </script><br>
+                <h5 style="text-align: center">Interest vs Principal Amount</h5>
             </div>
-            <!-- end third row -->
 
-            <!-- start fouth row -->
-            <div class="row well fouth-row" style="background: rgba(3, 78, 255, 0.08); border-width: 0px; border-radius: 16px;">
+            <div class="col-sm-8 srsc-ed" style="overflow-x: auto ">
+                <h4 style="text-align: center;">EMI and Interest Based on Period</h4>
+                <table class="table" style="overflow-x: auto ">
+                    <thead>
+                        <tr>
+                            <th scope="col">S/No</th>
+                            <th scope="col">Period(in months)</th>
+                            <th scope="col">EMI</th>
+                            <th scope="col">Total Amount</th>
+                            <th scope="col">Interest Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% var cnt=1 %>
+                        <% var p = principle_amount %>
+                        <% var r = intrest_rate %>
+                        <% var t = period - 24 %>
+                        <% if(t<=0) { %>
+                        <% t=6 %>
+                        <% }  %>
+                        <% var emis = 0 %>
+                        <% for(i=0;i<9;i++) { %>
+                        <tr class="text-center">
+                            <% if(r>0) %>
+                            <% emis = (p*(r/1200)*(1+(r/1200))**t)/(1-(1+(r/1200))**t) %>
+                            <% if(emis<0) %>
+                            <% emis = -emis%>
+                            <td><%= cnt %></td>
+                            <td><%= t %></td>
+                            <td><%= Number(Math.round((emis)+'e2')+'e-2') %></td>
+                            <td><%=  Number(Math.round((emis*t)+'e2')+'e-2')%></td>
+                            <td><%=  Number(Math.round(((emis*t)-p)+'e2')+'e-2')%></td>
+                        </tr>
+                        <% cnt = Number(cnt)+1%>
+                        <% t=Number(t)+6%>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
 
-                <div class="col-md emi_sheet "  style="overflow-x: auto ">
-                    <h4>Overall EMI Details Based on Period and Intrest Rate</h4>
-                    <table class="table text-center">
-                        <thead>
-                            <tr>
-                                <th scope="col"> Month </th>
-                                <th scope="col"> Principle Loan Amount </th>
-                                <th scope="col"> Interest </th>
-                                <th scope="col"> Principle Comp </th>
-                                <th scope="col"> Remaining Loan </th>
-                            </tr>
-                        </thead>
-                        <tbody>
+        </div>
+        <!-- end third row -->
+
+        <!-- start fouth row -->
+        <div class="row well fouth-row"
+            style="background: rgba(3, 78, 255, 0.08); border-width: 0px; border-radius: 16px;">
+
+            <div class="col-md emi_sheet " style="overflow-x: auto ">
+                <h4>Overall EMI Details Based on Period and Intrest Rate</h4>
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col"> Month </th>
+                            <th scope="col"> Principle Loan Amount </th>
+                            <th scope="col"> Interest </th>
+                            <th scope="col"> Principle Comp </th>
+                            <th scope="col"> Remaining Loan </th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <% var p = principle_amount %>
                         <% var remain_loan = principle_amount %>
                         <% var r = intrest_rate %>
@@ -459,26 +495,27 @@
                         <% emis = -emis%>
                         <% var intrest = p * (r/100) %>
                         <% for(i=1;i<=t;i++) { %>
-                            <tr>
-                                <td><%= i %></td>
-                                <td><%=Number(Math.round(p+'e2')+'e-2')%></td>
-                                <td><%= Number(Math.round((intrest/12)+'e2')+'e-2') %></td>
-                                <td><%=  Number(Math.round((emis-(intrest/12))+'e2')+'e-2')%></td>
-                                <% remain_loan = p-(emis-(intrest/12)) %>
-                                
-                                <td><%=  Number(Math.round(remain_loan+'e2')+'e-2')%></td>
-                            </tr>
-                            <% p = remain_loan %>
-                            <% intrest = p * (r/100) %>
-                            <% } %>
-                        </tbody>
-                    </table>
-                </div>
+                        <tr>
+                            <td><%= i %></td>
+                            <td><%=Number(Math.round(p+'e2')+'e-2')%></td>
+                            <td><%= Number(Math.round((intrest/12)+'e2')+'e-2') %></td>
+                            <td><%=  Number(Math.round((emis-(intrest/12))+'e2')+'e-2')%></td>
+                            <% remain_loan = p-(emis-(intrest/12)) %>
 
+                            <td><%=  Number(Math.round(remain_loan+'e2')+'e-2')%></td>
+                        </tr>
+                        <% p = remain_loan %>
+                        <% intrest = p * (r/100) %>
+                        <% } %>
+                    </tbody>
+                </table>
             </div>
-            <!-- end fouth row -->
+
         </div>
-        <%- include('partials/footer') %>
-        
-    </body>
+        <!-- end fouth row -->
+    </div>
+    <%- include('partials/footer') %>
+
+</body>
+
 </html>

@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>
-            
+            Compare bank loans
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, , maximum-scale=1, user-scalable=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -18,7 +18,7 @@
             }
             li {
                 list-style-type: none;
-                font-size: 18px;
+                font-size: 14px;
             }
 
             .row .col .table_container, .table_container_d{
@@ -64,19 +64,37 @@
                     color: white;
                     margin: auto;
                 }
+
+            form label {
+                font-weight: 500;   
+            }
+
+            .table_container thead th {
+                font-weight: 500;
+                font-size: 16px;
+                text-align: center;
+            }
+
+            .table_container_d thead th {
+                font-weight: 500;
+                font-size: 16px;
+                text-align: center;
+            }
+
+            div .float-button {
+                top: 40%; 
+                position: fixed; 
+                right:-45px; 
+                transform: rotate(270deg);
+            }
         </style>
     </head>
     <body style="font-family: Roboto, sans-serif">
         <%- include('partials/header') -%>
-        <div class="container" style="padding: 0% 5% 0% 5%">
-            <div class="row" style="padding: 24px 0px 24px 0px">
-                <div class="col">
-                    <div>
-                            <a href="/apply-loan"><button type="button" class="btn btn-success" style="float: right; ">Apply for Loan</button></a><br>
-                    </div>
-                </div>
-            </div>
-            
+        <div>
+                <a href="/apply-loan"><button type="button" class="btn btn-success float-button">Apply for Loan</button></a><br>
+        </div>
+        <div class="container" style="padding: 0% 5% 0% 5%">  
             <div class="row well" style="margin-right:2%; margin-left:2%; margin-bottom: 20px; border-radius: 16px;background: #EBF1FF; border-width: 0px;">
                 <div class="col">
                     <h3 class="text-center" style="margin-bottom: 28px;">Compare all bank Intrest rates in India</h3>
@@ -115,7 +133,7 @@
                                     <tr style="text-align: center">
                                         <th scope="col"> S/No </th>
                                         <th scope="col"> Bank </th>
-                                        <th scope="col"> Interest Rate <button onclick="inc()" style="width: 30px; padding: 3px ; border: 0px; background-color: rgba(154, 184, 255, 0.849); border-radius: 2px"><span id = "sort" class="glyphicon glyphicon-sort" style="top: 3px"></span></button> </th>
+                                        <th scope="col"> Interest Rate <button onclick="inc()" style="width: 30px; padding: 3px ; border: 0px; background-color: rgba(154, 184, 255, 0.849); border-radius: 2px"><span id = "sort" class="glyphicon glyphicon-chevron-down" style="top: 3px"></span></button> </th>
                                         <th scope="col"> Priciple Amount</th>
                                         <th scope="col"> Period (in months)</th>
                                         <th scope="col"> EMI </th>
@@ -125,16 +143,16 @@
                                 <tbody>
                                     <% for(var i=0;i<=data.length-1;i++) { %>
                                     <tr style="text-align: center">
-                                        <th scope="row"><%= i+1 %></th>
-                                        <td><b><%= data[i].bank_name %></b></td>
+                                        <td><%= i+1 %></td>
+                                        <td><span><%= data[i].bank_name %></span></td>
                                         <% var a = data[i].class+'_irate' %>
-                                        <td><b id="<%=a%>"><%= data[i].bank_intrest_rate %></b>%</td>
-                                        <td><b class="p_a"></b></td>
-                                        <td><b class="p_t"></b></td>
+                                        <td><span id="<%=a%>"><%= data[i].bank_intrest_rate %></span>%</td>
+                                        <td><span class="p_a"></span></td>
+                                        <td><span class="p_t"></span></td>
                                         <% var b = data[i].class+'_emi' %>
-                                        <td><b id="<%= b %>"></b></td>
+                                        <td><span id="<%= b %>"></span></td>
                                         <% var c = data[i].class+'_total' %>
-                                        <td><b id="<%= c %>"></b></td>
+                                        <td><span id="<%= c %>"></span></td>
                                     </tr>
                                     <% } %> 
                                 </tbody>
@@ -146,7 +164,7 @@
                                 <tr style="text-align: center">
                                     <th scope="col"> S/No </th>
                                     <th scope="col"> Bank </th>
-                                    <th scope="col"> Interest Rate <button onclick="dec()" style="width: 30px; padding: 3px; border: 0px; background-color: rgba(154, 184, 255, 0.849); border-radius: 2px"><span id = "sort_d" class="glyphicon glyphicon-sort" style="top: 3px"></span></button> </th>
+                                    <th scope="col"> Interest Rate <button onclick="dec()" style="width: 30px; padding: 3px; border: 0px; background-color: rgba(154, 184, 255, 0.849); border-radius: 2px"><span id = "sort_d" class="glyphicon glyphicon-chevron-up" style="top: 3px"></span></button> </th>
                                     <th scope="col"> Priciple Amount</th>
                                     <th scope="col"> Period (in months)</th>
                                     <th scope="col"> EMI </th>
@@ -157,16 +175,16 @@
                                 <% var cnt = 1%>
                                 <% for(var i=data.length-1;i>=0;i--) { %>
                                 <tr style="text-align: center">
-                                    <th scope="row"><%= cnt %></th>
-                                    <td><b><%= data[i].bank_name %></b></td>
+                                    <td><%= cnt %></td>
+                                    <td><span><%= data[i].bank_name %></span></td>
                                     <% var a = data[i].class+'_irate' %>
-                                    <td><b id="<%=a%>"><%= data[i].bank_intrest_rate %></b>%</td>
-                                    <td><b class="p_a"></b></td>
-                                    <td><b class="p_t"></b></td>
+                                    <td><span id="<%=a%>"><%= data[i].bank_intrest_rate %></span>%</td>
+                                    <td><span class="p_a"></span></td>
+                                    <td><span class="p_t"></span></td>
                                     <% var b = data[i].class+'_emi_d' %>
-                                    <td><b id="<%= b %>"></b></td>
+                                    <td><span id="<%= b %>"></span></td>
                                     <% var c = data[i].class+'_total_d' %>
-                                    <td><b id="<%= c %>"></b></td>
+                                    <td><span id="<%= c %>"></span></td>
                                 </tr>
                                 <% cnt = cnt+1%>
                                 <% } %>
@@ -179,7 +197,7 @@
 
             <div class="row well"style="margin-right:2%; margin-left:2%; margin-bottom: 20px; border-radius: 16px;background: #EBF1FF; border-width: 0px;">
                 <div class="col" style="padding: 20px">
-                    <h4 style="padding-bottom: 12px "><b>Leading Banks offering Education Loan</b></h4>
+                    <h4 style="padding-bottom: 12px ">Leading Banks offering Education Loan</h4>
                     <ul>
                         <li>State Bank of India</li>
                         <li>ICICI Bank</li>
